@@ -2,13 +2,16 @@ package com.group21.thermostat;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.*;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
     private double currentTemp;
     TextView programmedTemp;
     TextView realTemp;
+    TextView dayTime;
     RadioButton permanent;
     RadioButton program;
     Boolean isByProgram;
@@ -36,17 +40,21 @@ public class MainActivity extends ActionBarActivity {
         Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
         changeActionBarTitle(getWeekDay());
 
-
+        program.setChecked(true);
 
         temperatureSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 temperatureChanged(progress + 5);
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
         temperatureSeekbar.setMax(25);
 
@@ -56,12 +64,27 @@ public class MainActivity extends ActionBarActivity {
                 isByProgram = isChecked;
             }
         });
+
+
+        // Time update
+        final MyTimer timer = new MyTimer();
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                timer.update();
+                dayTime.setText(timer.toString());
+                handler.postDelayed(this, 1000);
+            }
+        }, 1000);
+
     }
 
     private void initializeUIelements() {
         temperatureSeekbar = (SeekBar)findViewById(R.id.temperatureSeekbar);
         programmedTemp =(TextView)findViewById(R.id.programmedTemp);
         realTemp =(TextView)findViewById(R.id.realTemp);
+        dayTime = (TextView)findViewById(R.id.time);
         permanent = (RadioButton)findViewById(R.id.permanentRadio);
         program = (RadioButton)findViewById(R.id.programRadio);
     }
@@ -88,7 +111,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private double CelsiusToFahr(double celsius) {
-        return roundIt((9/5) * celsius + 32);
+        return roundIt((9.0 / 5.0) * celsius + 32);
     }
 
     private double roundIt(double x) {
