@@ -1,18 +1,17 @@
 package com.group21.thermostat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.widget.*;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,10 +21,9 @@ import java.util.Locale;
 public class MainActivity extends ActionBarActivity {
 
     SeekBar temperatureSeekbar;
-    private double currentTemp;
+    private float currentTemp;
     TextView programmedTemp;
     TextView realTemp;
-    TextView dayTime;
     RadioButton permanent;
     RadioButton program;
     Boolean isByProgram;
@@ -37,97 +35,82 @@ public class MainActivity extends ActionBarActivity {
         initializeUIelements();
 
         changeActionBarColor(new ColorDrawable(Color.parseColor("#03A9F4")));
-        Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
         changeActionBarTitle(getWeekDay());
 
-        program.setChecked(true);
+
 
         temperatureSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 temperatureChanged(progress + 5);
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
         temperatureSeekbar.setMax(25);
-
+        temperatureChanged(temperatureSeekbar.getProgress()+5);
         program.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 isByProgram = isChecked;
             }
         });
-
-
-        // Time update
-        final MyTimer timer = new MyTimer();
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                timer.update();
-                dayTime.setText(timer.toString());
-                handler.postDelayed(this, 1000);
-            }
-        }, 1000);
-
     }
 
     private void initializeUIelements() {
         temperatureSeekbar = (SeekBar)findViewById(R.id.temperatureSeekbar);
         programmedTemp =(TextView)findViewById(R.id.programmedTemp);
         realTemp =(TextView)findViewById(R.id.realTemp);
-        dayTime = (TextView)findViewById(R.id.time);
         permanent = (RadioButton)findViewById(R.id.permanentRadio);
         program = (RadioButton)findViewById(R.id.programRadio);
     }
 
     public void plusClick(View v) {
-        double newTemp = roundIt(getCurrentSetTemperature()+0.1);
+        float newTemp = getCurrentSetTemperature() + 0.1f;
 
         temperatureChanged(newTemp);
 
-        if ((newTemp == Math.floor(newTemp)) && !Double.isInfinite(newTemp)) {
-            temperatureSeekbar.setProgress((int)Math.floor(newTemp)- 5);
+        if (isIntegerValue(newTemp)) {
+            temperatureSeekbar.setProgress((int)newTemp- 5);
         }
     }
 
     public void minusClick(View v) {
-        double newTemp = roundIt(getCurrentSetTemperature()- 0.1);
+        float newTemp = getCurrentSetTemperature() - 0.1f;
 
         temperatureChanged(newTemp);
 
-        if ((newTemp == Math.floor(newTemp)) && !Double.isInfinite(newTemp)) {
-            temperatureSeekbar.setProgress((int) Math.floor(newTemp) - 5);
+        if (isIntegerValue(newTemp)) {
+            temperatureSeekbar.setProgress((int)newTemp - 5);
         }
 
     }
 
+    private boolean isIntegerValue(float bd) {
+        return bd == Math.floor(bd) && !Float.isInfinite(bd);
+    }
+
     private double CelsiusToFahr(double celsius) {
-        return roundIt((9.0 / 5.0) * celsius + 32);
+        return roundIt((9/5) * celsius + 32);
     }
 
     private double roundIt(double x) {
         return Math.floor(x * 10) / 10;
     }
 
-    private void temperatureChanged(double newTemp) {
-        currentTemp = roundIt(newTemp);
+    private void temperatureChanged(float newTemp) {
 
-        programmedTemp.setText(currentTemp + " °C / " + CelsiusToFahr(currentTemp) + " °F");
+        currentTemp = newTemp;
+
+        programmedTemp.setText(roundIt(newTemp) + " °C / " + CelsiusToFahr(newTemp) + " °F");
 
         //TODO manage realTemp??
-        realTemp.setText(currentTemp + " °C / " + CelsiusToFahr(currentTemp) + " °F");
+        realTemp.setText(roundIt(newTemp) + " °C / " + CelsiusToFahr(newTemp) + " °F");
     }
 
-    private double getCurrentSetTemperature() {
+    private float getCurrentSetTemperature() {
         return currentTemp;
     }
 
@@ -141,6 +124,10 @@ public class MainActivity extends ActionBarActivity {
         actionBar.setTitle(title);
     }
 
+    public void editProgramClick(View v) {
+        Intent intent = new Intent(this, Program_edit_Activity.class);
+        startActivity(intent);
+    }
     private String getWeekDay() {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
