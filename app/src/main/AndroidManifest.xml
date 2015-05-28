@@ -20,6 +20,10 @@
             android:name=".ConfigureSchedule"
             android:label="@string/title_activity_configure_schedule" >
         </activity>
+        <activity
+            android:name=".Term"
+            android:label="@string/title_activity_term" >
+        </activity>
     </application>
 
 </manifest>
