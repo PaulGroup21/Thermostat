@@ -66,7 +66,7 @@ public class MyTimer {
 
     @Override
     public String toString() {
-        return getStringDay() + " " + getHour() + ":" + getMinute();
+        return getStringDay() + " " + getHour() + ":" + (getMinute()>9?getMinute():"0"+getMinute());
     }
 
     /*
