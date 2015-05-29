@@ -166,7 +166,7 @@ public class MainActivity extends ActionBarActivity {
             dayTime.setText(timer.toString() + "\nMode: Permanent");
         }
 
-        changeActionBarTitle(getWeekDay());
+        changeActionBarTitle(timer.getStringDay());
     }
 
     private void initializeUIelements() {
