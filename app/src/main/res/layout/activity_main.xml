@@ -73,6 +73,15 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/realTempLabel"/>
 
+    <TextView
+        android:id="@+id/time"
+        android:text="Wednesday 20:59\nMode: Night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/realTemp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"/>
 
     <TextView
             android:layout_width="wrap_content"
