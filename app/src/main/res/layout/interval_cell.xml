@@ -12,6 +12,8 @@
     <TextView
             android:id="@+id/interval"
             android:layout_width="match_parent"
+            android:padding="15dp"
+            android:textSize="15dp"
             android:layout_height="wrap_content"
             android:text="12:30 - 20:30"/>
 
