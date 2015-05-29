@@ -51,11 +51,22 @@ public class MainActivity extends ActionBarActivity {
         program.setChecked(true);
         temperatureSeekbar.setMax(25);
 
+        // Time update
+        final MyTimer timer = new MyTimer();
+
         // Deserialize
         schedule = readFromFile(this);
         if (schedule == null) {
             schedule = new WeekSchedule();
-            //temperatureChanged(temperatureSeekbar.getProgress() + 5);
+            if (schedule.shouldSwitchToDayTemperature(timer.getDay(), timer.getHour(),
+                    timer.getMinute())) {
+                temperatureSeekbar.setProgress((int)schedule.getTempDay() - 5);
+                temperatureChanged(schedule.getTempDay());
+                timer.switchMode();
+            } else {
+                temperatureSeekbar.setProgress((int)schedule.getTempNight() - 5);
+                temperatureChanged(schedule.getTempNight());
+            }
         } else {
             program.setChecked(!schedule.isPermanent());
             permanent.setChecked(schedule.isPermanent());
@@ -88,13 +99,10 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        schedule.add(6, 12, 0, 12, 30);
-        schedule.add(6, 12, 45, 13, 0);
-        schedule.add(6, 14, 0, 15, 0);
-        schedule.add(6, 15, 20, 15, 30);
-
-        // Time update
-        final MyTimer timer = new MyTimer();
+        schedule.add(6, 15, 0, 15, 30);
+        schedule.add(6, 16, 0, 16, 30);
+        schedule.add(6, 17, 0, 17, 30);
+        schedule.add(6, 18, 0, 18, 30);
 
         updateView(timer);
 
