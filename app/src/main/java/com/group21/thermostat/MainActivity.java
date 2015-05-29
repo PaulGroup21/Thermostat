@@ -58,20 +58,23 @@ public class MainActivity extends ActionBarActivity {
         schedule = readFromFile(this);
         if (schedule == null) {
             schedule = new WeekSchedule();
-            if (schedule.shouldSwitchToDayTemperature(timer.getDay(), timer.getHour(),
-                    timer.getMinute())) {
-                temperatureSeekbar.setProgress((int)schedule.getTempDay() - 5);
-                temperatureChanged(schedule.getTempDay());
-                timer.switchMode();
-            } else {
-                temperatureSeekbar.setProgress((int)schedule.getTempNight() - 5);
-                temperatureChanged(schedule.getTempNight());
-            }
         } else {
             program.setChecked(!schedule.isPermanent());
             permanent.setChecked(schedule.isPermanent());
             if (schedule.isPermanent()) {
                 temperatureChanged(schedule.getTempPermanent());
+            }
+        }
+
+        if (! schedule.isPermanent()) {
+            if (schedule.shouldSwitchToDayTemperature(timer.getDay(), timer.getHour(),
+                    timer.getMinute())) {
+                temperatureSeekbar.setProgress((int) schedule.getTempDay() - 5);
+                temperatureChanged(schedule.getTempDay());
+                timer.switchMode();
+            } else {
+                temperatureSeekbar.setProgress((int) schedule.getTempNight() - 5);
+                temperatureChanged(schedule.getTempNight());
             }
         }
 
