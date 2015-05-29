@@ -110,7 +110,8 @@
             android:layout_below="@+id/dayNightEDIT"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TableRow>
+        <TableRow
+                android:id="@+id/monday">
             <TextView
                     android:text="Monday"/>
             <TextView
@@ -119,6 +120,7 @@
                     android:text="EDIT" android:textColor="#E91E63"/>
         </TableRow>
         <TableRow
+                android:id="@+id/tuesday"
                 android:layout_marginTop="20sp">
             <TextView
                     android:text="Tuesday"/>
@@ -128,6 +130,7 @@
                     android:text="EDIT" android:textColor="#E91E63"/>
         </TableRow>
         <TableRow
+                android:id="@+id/wednesday"
                 android:layout_marginTop="20sp">
             <TextView
                     android:text="Wednesday"/>
@@ -137,6 +140,7 @@
                     android:text="EDIT" android:textColor="#E91E63"/>
         </TableRow>
         <TableRow
+                android:id="@+id/thursday"
                 android:layout_marginTop="20sp">
             <TextView
                     android:text="Thursday"/>
@@ -146,6 +150,7 @@
                     android:text="EDIT" android:textColor="#E91E63"/>
         </TableRow>
         <TableRow
+                android:id="@+id/friday"
                 android:layout_marginTop="20sp">
             <TextView
                     android:text="Friday"/>
@@ -155,8 +160,10 @@
                     android:text="EDIT" android:textColor="#E91E63"/>
         </TableRow>
         <TableRow
+                android:id="@+id/saturday"
                 android:layout_marginTop="20sp">
             <TextView
+
                     android:text="Saturday"/>
             <TextView
                     android:textColor="#E91E63"
@@ -165,8 +172,10 @@
                     android:text="EDIT"/>
         </TableRow>
         <TableRow
+                android:id="@+id/sunday"
                 android:layout_marginTop="20sp">
             <TextView
+
                     android:text="Sunday"/>
             <TextView
                     android:textColor="#E91E63"

@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 
@@ -20,7 +21,7 @@ public class Program_edit_Activity extends ActionBarActivity {
     float currentDay = MainActivity.schedule.getTempDay();
     TextView dayTemp;
     TextView nightTemp;
-    TextView[] buttons;
+    TableRow[] tableRows;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class Program_edit_Activity extends ActionBarActivity {
         setContentView(R.layout.activity_program_edit_);
 
         changeActionBarColor(new ColorDrawable(Color.parseColor("#03A9F4")));
-        changeActionBarTitle("Program edit");
+        changeActionBarTitle("Program ");
 
         initializeUIelements();
 
@@ -109,40 +110,42 @@ public class Program_edit_Activity extends ActionBarActivity {
         night =(SeekBar)findViewById(R.id.nightSeekbar);
         dayTemp = (TextView)findViewById(R.id.dayTemp);
         nightTemp = (TextView)findViewById(R.id.nightTemp);
-        buttons = new TextView[7];
-        buttons[0] = (TextView)findViewById(R.id.mondayEDIT);
-        buttons[1] = (TextView)findViewById(R.id.tuesdayEDIT);
-        buttons[2] = (TextView)findViewById(R.id.wednesdayEDIT);
-        buttons[3] = (TextView)findViewById(R.id.thursdayEDIT);
-        buttons[4] = (TextView)findViewById(R.id.fridayEDIT);
-        buttons[5] = (TextView)findViewById(R.id.saturdayEDIT);
-        buttons[6] = (TextView)findViewById(R.id.sundayEDIT);
+        
 
-        for (TextView b : buttons) {
+        tableRows = new TableRow[7];
+        tableRows[0] = (TableRow)findViewById(R.id.monday);
+        tableRows[1] = (TableRow)findViewById(R.id.tuesday);
+        tableRows[2] = (TableRow)findViewById(R.id.wednesday);
+        tableRows[3] = (TableRow)findViewById(R.id.thursday);
+        tableRows[4] = (TableRow)findViewById(R.id.friday);
+        tableRows[5] = (TableRow)findViewById(R.id.saturday);
+        tableRows[6] = (TableRow)findViewById(R.id.sunday);
+
+        for (TableRow b : tableRows) {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     switch (v.getId()) {
-                        case R.id.mondayEDIT:
-                            openScheduleEdit("Monday", 1);
+                        case R.id.monday:
+                            openSchedule("Monday", 1);
                             break;
-                        case R.id.tuesdayEDIT:
-                            openScheduleEdit("Tuesday", 2);
+                        case R.id.tuesday:
+                            openSchedule("Tuesday", 2);
                             break;
-                        case R.id.wednesdayEDIT:
-                            openScheduleEdit("Wednesday", 3);
+                        case R.id.wednesday:
+                            openSchedule("Wednesday", 3);
                             break;
-                        case R.id.thursdayEDIT:
-                            openScheduleEdit("Thursday", 4);
+                        case R.id.thursday:
+                            openSchedule("Thursday", 4);
                             break;
-                        case R.id.fridayEDIT:
-                            openScheduleEdit("Friday", 5);
+                        case R.id.friday:
+                            openSchedule("Friday", 5);
                             break;
-                        case R.id.saturdayEDIT:
-                            openScheduleEdit("Saturday", 6);
+                        case R.id.saturday:
+                            openSchedule("Saturday", 6);
                             break;
-                        case R.id.sundayEDIT:
-                            openScheduleEdit("Sunday", 0);
+                        case R.id.sunday:
+                            openSchedule("Sunday", 0);
                             break;
                     }
                 }
@@ -150,7 +153,7 @@ public class Program_edit_Activity extends ActionBarActivity {
         }
     }
 
-    private void openScheduleEdit(String weekday, int weekd) {
+    private void openSchedule(String weekday, int weekd) {
         Intent intent = new Intent(this, Schedule_Activity.class);
         intent.putExtra("weekday", weekday);
         intent.putExtra("weekd", weekd);
