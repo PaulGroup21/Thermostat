@@ -107,7 +107,9 @@ public class MainActivity extends ActionBarActivity {
 
         schedule.add(6, 17, 10, 17, 30);
         schedule.add(6, 18, 0, 18, 30);
+        schedule.add(6, 6, 0, 7, 30);
         schedule.add(6, 19, 0, 19, 30);
+
 
         updateView(timer);
 
@@ -166,7 +168,7 @@ public class MainActivity extends ActionBarActivity {
             dayTime.setText(timer.toString() + "\nMode: Permanent");
         }
 
-        changeActionBarTitle(timer.getStringDay());
+        changeActionBarTitle(getWeekDay());
     }
 
     private void initializeUIelements() {

@@ -10,8 +10,9 @@
             android:layout_margin="15sp"
             android:background="@android:color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="150sp">
         <RelativeLayout
+                android:id="@+id/weekdayLayout"
                 android:background="#03A9F4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -25,14 +26,22 @@
                     android:text="Monday"/>
         </RelativeLayout>
 
+        <com.github.mikephil.charting.charts.LineChart
+                android:layout_below="@+id/weekdayLayout"
+                android:id="@+id/chart"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
     </RelativeLayout>
 
     <Button
+            android:textSize="60sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginTop="-35dp"
             android:textColor="@android:color/white"
             android:text="+"
+            android:onClick="plusButton"
             android:layout_alignTop="@+id/intervalsListView"
             android:layout_width="70dp"
             android:layout_height="70dp"

@@ -24,6 +24,54 @@ public class TimeSection implements Serializable {
         return false;
     }
 
+    public String getHourStart() {
+        int temp = left;
+        int res = 0;
+        while (temp >= 60) {
+            res++;
+            temp -= 60;
+        }
+        if (res == 0) {
+            return res + "0";
+        }
+        return res+"";
+    }
+
+    public String getHourEnd() {
+        int temp = right;
+        int res = 0;
+        while (temp >= 60) {
+            res++;
+            temp -= 60;
+        }
+        if (res == 0) {
+            return res + "0";
+        }
+        return res+"";
+    }
+
+    public String getMinutesStart() {
+        int temp = left;
+        while (temp >= 60) {
+            temp -= 60;
+        }
+        if (temp == 0) {
+            return temp + "0";
+        }
+        return temp+"";
+    }
+
+    public String getMinutesEnd() {
+        int temp = right;
+        while (temp >= 60) {
+            temp -= 60;
+        }
+        if (temp == 0) {
+            return temp + "0";
+        }
+        return temp+"";
+    }
+
     public boolean intersects(int t) {
         if(t >= left && t <= right ) {
             return true;

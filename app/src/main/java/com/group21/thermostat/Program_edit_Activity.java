@@ -124,25 +124,25 @@ public class Program_edit_Activity extends ActionBarActivity {
                 public void onClick(View v) {
                     switch (v.getId()) {
                         case R.id.mondayEDIT:
-                            openScheduleEdit("Monday");
+                            openScheduleEdit("Monday", 0);
                             break;
                         case R.id.tuesdayEDIT:
-                            openScheduleEdit("Tuesday");
+                            openScheduleEdit("Tuesday", 1);
                             break;
                         case R.id.wednesdayEDIT:
-                            openScheduleEdit("Wednesday");
+                            openScheduleEdit("Wednesday", 2);
                             break;
                         case R.id.thursdayEDIT:
-                            openScheduleEdit("Thursday");
+                            openScheduleEdit("Thursday",3);
                             break;
                         case R.id.fridayEDIT:
-                            openScheduleEdit("Friday");
+                            openScheduleEdit("Friday", 4);
                             break;
                         case R.id.saturdayEDIT:
-                            openScheduleEdit("Saturday");
+                            openScheduleEdit("Saturday", 5);
                             break;
                         case R.id.sundayEDIT:
-                            openScheduleEdit("Sunday");
+                            openScheduleEdit("Sunday", 6);
                             break;
                     }
                 }
@@ -150,9 +150,10 @@ public class Program_edit_Activity extends ActionBarActivity {
         }
     }
 
-    private void openScheduleEdit(String weekday) {
+    private void openScheduleEdit(String weekday, int weekd) {
         Intent intent = new Intent(this, Schedule_Activity.class);
         intent.putExtra("weekday", weekday);
+        intent.putExtra("weekd", weekd);
         startActivity(intent);
     }
 

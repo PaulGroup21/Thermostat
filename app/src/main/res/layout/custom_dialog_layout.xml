@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+        android:padding="5sp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+    <TableRow
+            android:layout_width="fill_parent">
+        <TextView
+                android:textColor="#03A9F4"
+                android:gravity="center"
+                android:layout_span="3"
+                android:text="TIME FROM"/>
+        <TextView
+                android:textColor="#03A9F4"
+                android:gravity="center"
+                android:layout_span="3"
+                android:text="TIME TO"/>
+
+    </TableRow>
+    <View android:layout_width="wrap_content"
+          android:layout_height="2dp"
+          android:background="#03A9F4"/>
+    <TableRow>
+<NumberPicker
+        android:id="@+id/from_hours"/>
+    <NumberPicker
+            android:layout_marginRight="5sp"
+            android:layout_toRightOf="@+id/from_hours"
+            android:id="@+id/from_minutes"/>
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="1dp"
+            android:background="#03A9F4"/>
+        <View
+                android:layout_height="match_parent"
+                android:layout_width="1dp"
+                android:background="#03A9F4"/>
+    <NumberPicker
+        android:layout_marginLeft="5sp"
+            android:layout_toRightOf="@+id/from_minutes"
+            android:id="@+id/to_hours"/>
+    <NumberPicker
+            android:layout_toRightOf="@+id/to_hours"
+            android:id="@+id/to_minutes"/>
+</TableRow>
+    <View android:layout_width="wrap_content"
+          android:layout_height="2dp"
+          android:background="#03A9F4"/>
+    <TableRow>
+    <Button
+            android:layout_span="3"
+            android:id="@+id/readyButton"
+            android:textColor="#03A9F4"
+            android:text="Ready!"/>
+    <Button
+            android:layout_span="3"
+            android:id="@+id/dismiss"
+            android:textColor="#03A9F4"
+            android:text="Cancel"/>
+    </TableRow>
+</TableLayout>
