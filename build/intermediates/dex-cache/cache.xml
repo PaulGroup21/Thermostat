@@ -2,46 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/pre-dexed/debug/classes-d4d33cfd82e72026040066cb16fdf798862d049a.jar" />
-    </item>
-    <item
-        jar="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/pre-dexed/debug/classes-8310ee85e74fdd9e5a4839c3fb060a004f2872a5.jar" />
-    </item>
-    <item
-        jar="/Users/diesersamat/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.0/ec46f9251e1e0ee60e1b6beae8b16f2e0fdee474/MPAndroidChart-v2.1.0.jar"
+        jar="/Users/alfasens/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.0/ec46f9251e1e0ee60e1b6beae8b16f2e0fdee474/MPAndroidChart-v2.1.0.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="ec46f9251e1e0ee60e1b6beae8b16f2e0fdee474">
-        <dex dex="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v2.1.0-0c2652aff2c4f20b4628e636a007f798d7385e63.jar" />
-    </item>
-    <item
-        jar="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/exploded-aar/no.hyper/dateintervalpicker/1.0.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="4be86f3fb6a536bd54a9eef6d69f6e077cde2429">
-        <dex dex="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/pre-dexed/debug/classes-3cb12047c3f87c164dbc78468d4cf58fdde7d60c.jar" />
-    </item>
-    <item
-        jar="/Users/diesersamat/Documents/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-50811ff19ec4b6135e84c8770af7a232ff81ccd3.jar" />
-    </item>
-    <item
-        jar="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/diesersamat/Documents/IdeaProjects/Thermostat/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-2a478b7891008070799255d35971e438e80c6bef.jar" />
+        <dex dex="/Users/alfasens/AndroidStudioProjects/Thermostat/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v2.1.0-8d08a9849ec37b62cb7e375ff9b62619d13b166b.jar" />
     </item>
 
 </items>

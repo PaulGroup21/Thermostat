@@ -124,25 +124,25 @@ public class Program_edit_Activity extends ActionBarActivity {
                 public void onClick(View v) {
                     switch (v.getId()) {
                         case R.id.mondayEDIT:
-                            openScheduleEdit("Monday", 0);
+                            openScheduleEdit("Monday", 1);
                             break;
                         case R.id.tuesdayEDIT:
-                            openScheduleEdit("Tuesday", 1);
+                            openScheduleEdit("Tuesday", 2);
                             break;
                         case R.id.wednesdayEDIT:
-                            openScheduleEdit("Wednesday", 2);
+                            openScheduleEdit("Wednesday", 3);
                             break;
                         case R.id.thursdayEDIT:
-                            openScheduleEdit("Thursday",3);
+                            openScheduleEdit("Thursday", 4);
                             break;
                         case R.id.fridayEDIT:
-                            openScheduleEdit("Friday", 4);
+                            openScheduleEdit("Friday", 5);
                             break;
                         case R.id.saturdayEDIT:
-                            openScheduleEdit("Saturday", 5);
+                            openScheduleEdit("Saturday", 6);
                             break;
                         case R.id.sundayEDIT:
-                            openScheduleEdit("Sunday", 6);
+                            openScheduleEdit("Sunday", 0);
                             break;
                     }
                 }

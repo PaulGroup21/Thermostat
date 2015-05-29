@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
-import javax.xml.datatype.Duration;
-
 /**
  * Created by diesersamat on 29/05/15.
  */
@@ -53,7 +51,7 @@ public class Custom_Dialog extends Dialog {
             @Override
             public void onClick(View v) {
 
-                if (MainActivity.schedule.add(dayWeek, from_hours.getValue(), from_minutes.getValue(),
+                if (MainActivity.schedule.add(dayWeek + 1, from_hours.getValue(), from_minutes.getValue(),
                                 to_hours.getValue(), to_minutes.getValue())) {
                     closeDialog();
                 }
