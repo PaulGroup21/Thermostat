@@ -81,8 +81,11 @@ public class MainActivity extends ActionBarActivity {
         temperatureSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser)
+                if (fromUser) {
                     temperatureChanged(progress + 5);
+                }
+
+                schedule.setTemporary(true);
             }
 
             @Override
@@ -102,10 +105,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        schedule.add(6, 15, 0, 15, 30);
-        schedule.add(6, 16, 0, 16, 30);
-        schedule.add(6, 17, 0, 17, 30);
+        schedule.add(6, 17, 10, 17, 30);
         schedule.add(6, 18, 0, 18, 30);
+        schedule.add(6, 19, 0, 19, 30);
 
         updateView(timer);
 
@@ -131,7 +133,8 @@ public class MainActivity extends ActionBarActivity {
             boolean shouldBeDay = schedule.shouldSwitchToDayTemperature(timer.getDay(),
                     timer.getHour(), timer.getMinute());
 
-            if (shouldBeDay && (!timer.isDay() || schedule.isChanged())) {
+            if (shouldBeDay && (!timer.isDay() || schedule.isChanged()
+                    && !schedule.isTemporary())) {
                 // switch to day
                 temperatureSeekbar.setProgress((int) schedule.getTempDay() - 5);
                 temperatureChanged(schedule.getTempDay());
@@ -140,9 +143,11 @@ public class MainActivity extends ActionBarActivity {
                     timer.switchMode();
 
                 schedule.setChanged(false);
+                schedule.setTemporary(false);
             }
 
-            if (!shouldBeDay && (timer.isDay() || schedule.isChanged())) {
+            if (!shouldBeDay && (timer.isDay() || schedule.isChanged()
+                    && !schedule.isTemporary())) {
                 // switch to night
                 temperatureSeekbar.setProgress((int) schedule.getTempNight() - 5);
                 temperatureChanged(schedule.getTempNight());
@@ -151,6 +156,7 @@ public class MainActivity extends ActionBarActivity {
                     timer.switchMode();
 
                 schedule.setChanged(false);
+                schedule.setTemporary(false);
             }
 
             dayTime.setText(timer.toString() + "\nMode: "
@@ -159,6 +165,8 @@ public class MainActivity extends ActionBarActivity {
         } else {
             dayTime.setText(timer.toString() + "\nMode: Permanent");
         }
+
+        changeActionBarTitle(getWeekDay());
     }
 
     private void initializeUIelements() {

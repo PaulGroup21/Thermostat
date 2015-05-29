@@ -10,6 +10,7 @@ public class WeekSchedule implements Serializable {
     float tempDay;
     float tempNight;
     float tempPermanent;
+    boolean temporary;
     boolean permanent;
     boolean changed;
 
@@ -32,6 +33,14 @@ public class WeekSchedule implements Serializable {
 
     public void setChanged(boolean changed) {
         this.changed = changed;
+    }
+
+    public boolean isTemporary() {
+        return temporary;
+    }
+
+    public void setTemporary(boolean temporary) {
+        this.temporary = temporary;
     }
 
     public float getTempDay() {
