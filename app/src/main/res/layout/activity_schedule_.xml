@@ -36,8 +36,8 @@
 
     <Button
             android:textSize="45sp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="-35dp"
             android:textColor="@android:color/white"
             android:text="+"
@@ -50,6 +50,7 @@
             android:id="@+id/intervalsListView"
             android:background="@android:color/white"
             android:layout_marginTop="20sp"
+            android:paddingTop="40dp"
             android:layout_below="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

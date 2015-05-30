@@ -59,14 +59,13 @@ public class Schedule_Activity extends ActionBarActivity {
         XAxis xAxis = chart.getXAxis();
         xAxis.setDrawLimitLinesBehindData(false);
 
-
         YAxis yAxis = chart.getAxisLeft();
         yAxis.setDrawLabels(false);
         yAxis.setDrawGridLines(false);
         yAxis.setDrawTopYLabelEntry(false);
         yAxis.setDrawLimitLinesBehindData(false);
         yAxis.setAxisMinValue(5);
-        yAxis.setAxisMaxValue(30);
+        yAxis.setAxisMaxValue(40);
         yAxis = chart.getAxisRight();
         yAxis.setDrawLabels(false);
         yAxis.setDrawGridLines(false);
@@ -86,12 +85,12 @@ public class Schedule_Activity extends ActionBarActivity {
 
         LineDataSet setComp1 = new LineDataSet(temp_time, "Temperatures");
         setComp1.setAxisDependency(YAxis.AxisDependency.LEFT);
-        setComp1.setValueTextSize(12f);
+        setComp1.setValueTextSize(11f);
         setComp1.setValueTextColor(Color.parseColor("#03A9F4"));
         setComp1.setValueFormatter(new ValueFormatter() {
             @Override
             public String getFormattedValue(float value) {
-                return value + " °C";
+                return "     " + value + " °C";
             }
         });
 
@@ -145,6 +144,7 @@ public class Schedule_Activity extends ActionBarActivity {
             @Override
             public void onDismiss(DialogInterface dialog) {
                 ((Intervals_Adapter)((ListView) findViewById(R.id.intervalsListView)).getAdapter()).notifyDataSetChanged();
+                chartWork();
             }
         });
     }

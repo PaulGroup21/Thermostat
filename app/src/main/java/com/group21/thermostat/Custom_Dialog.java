@@ -36,9 +36,9 @@ public class Custom_Dialog extends Dialog {
         setContentView(R.layout.custom_dialog_layout);
 
         from_hours = (NumberPicker)findViewById(R.id.from_hours);
-         to_hours= (NumberPicker)findViewById(R.id.to_hours);
-         from_minutes= (NumberPicker)findViewById(R.id.from_minutes);
-         to_minutes= (NumberPicker)findViewById(R.id.to_minutes);
+        to_hours= (NumberPicker)findViewById(R.id.to_hours);
+        from_minutes= (NumberPicker)findViewById(R.id.from_minutes);
+        to_minutes= (NumberPicker)findViewById(R.id.to_minutes);
         readyButton = (Button)findViewById(R.id.readyButton);
 
         from_hours.setMaxValue(23);
