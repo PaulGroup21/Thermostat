@@ -20,6 +20,7 @@
     <ImageButton
             android:id="@+id/deletebutton"
             android:background="#F44336"
+            android:padding="17dp"
             android:src="@drawable/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

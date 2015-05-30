@@ -54,7 +54,7 @@
             android:layout_span="3"
             android:id="@+id/readyButton"
             android:textColor="#03A9F4"
-            android:text="Ready!"/>
+            android:text="Done"/>
     <Button
             android:layout_span="3"
             android:id="@+id/dismiss"

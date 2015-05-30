@@ -3,16 +3,15 @@ package com.group21.thermostat;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -79,10 +78,10 @@ public class Schedule_Activity extends ActionBarActivity {
 
         for (int i = 0 ; i < times.size()*2; i++) {
             if (i%2 == 0) {
-                temp_time.add(new Entry(MainActivity.schedule.getTempDay(), i));
+                temp_time.add(new Entry((float)roundIt(MainActivity.schedule.getTempDay()), i));
             }
             else
-                temp_time.add(new Entry(MainActivity.schedule.getTempNight(), i));
+                temp_time.add(new Entry((float)roundIt(MainActivity.schedule.getTempNight()), i));
         }
 
         LineDataSet setComp1 = new LineDataSet(temp_time, "Temperatures");
@@ -110,6 +109,10 @@ public class Schedule_Activity extends ActionBarActivity {
         chart.setData(data);
         chart.invalidate(); // refresh
         chart.animateX(1000, Easing.EasingOption.EaseInCirc);
+    }
+
+    private double roundIt(double x) {
+        return (double)Math.round(x * 10) / 10;
     }
 
     private void changeActionBarColor(ColorDrawable color) {

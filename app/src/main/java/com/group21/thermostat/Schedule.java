@@ -32,6 +32,14 @@ public class Schedule implements Serializable {
     }
 
     public boolean add(int h1, int m1, int h2, int m2) {
+        if (h1 > h2) {
+            return false;
+        }
+
+        if (h1 == h2 && m1 > m2) {
+            return false;
+        }
+
         TimeSection t = new TimeSection(h1 * 60 + m1, h2 * 60 + m2);
         if (mayAdd(t)) {
             listDaySections.add(t);
