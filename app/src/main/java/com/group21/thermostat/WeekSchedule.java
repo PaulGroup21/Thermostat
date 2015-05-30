@@ -22,8 +22,8 @@ public class WeekSchedule implements Serializable {
             week[i] = new Schedule();
         }
 
-        this.tempDay = 15;
-        this.tempNight = 25;
+        this.tempDay = 25;
+        this.tempNight = 15;
         this.permanent = false;
     }
 

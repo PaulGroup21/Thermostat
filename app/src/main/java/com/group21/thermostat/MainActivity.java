@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -38,6 +39,8 @@ public class MainActivity extends ActionBarActivity {
     RadioButton permanent;
     RadioButton program;
     Boolean isByProgram;
+    ImageView sun;
+    ImageView moon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +75,13 @@ public class MainActivity extends ActionBarActivity {
                 temperatureSeekbar.setProgress((int) schedule.getTempDay() - 5);
                 temperatureChanged(schedule.getTempDay());
                 timer.switchMode();
+                moon.setVisibility(View.INVISIBLE);
+                sun.setVisibility(View.VISIBLE);
             } else {
                 temperatureSeekbar.setProgress((int) schedule.getTempNight() - 5);
                 temperatureChanged(schedule.getTempNight());
+                moon.setVisibility(View.VISIBLE);
+                sun.setVisibility(View.INVISIBLE);
             }
         }
 
@@ -130,6 +137,16 @@ public class MainActivity extends ActionBarActivity {
             boolean shouldBeDay = schedule.shouldSwitchToDayTemperature(timer.getDay(),
                     timer.getHour(), timer.getMinute());
 
+            if (shouldBeDay && sun.getVisibility() == View.INVISIBLE) {
+                moon.setVisibility(View.INVISIBLE);
+                sun.setVisibility(View.VISIBLE);
+            }
+
+            if (!shouldBeDay && moon.getVisibility() == View.INVISIBLE) {
+                moon.setVisibility(View.VISIBLE);
+                sun.setVisibility(View.INVISIBLE);
+            }
+
             if (shouldBeDay && (!timer.isDay() || schedule.isChanged()
                     && !schedule.isTemporary())) {
                 // switch to day
@@ -141,6 +158,8 @@ public class MainActivity extends ActionBarActivity {
 
                 schedule.setChanged(false);
                 schedule.setTemporary(false);
+                moon.setVisibility(View.INVISIBLE);
+                sun.setVisibility(View.VISIBLE);
             }
 
             if (!shouldBeDay && (timer.isDay() || schedule.isChanged()
@@ -154,6 +173,8 @@ public class MainActivity extends ActionBarActivity {
 
                 schedule.setChanged(false);
                 schedule.setTemporary(false);
+                moon.setVisibility(View.VISIBLE);
+                sun.setVisibility(View.INVISIBLE);
             }
 
             dayTime.setText(timer.toString() + "\nMode: "
@@ -161,6 +182,8 @@ public class MainActivity extends ActionBarActivity {
 
         } else {
             dayTime.setText(timer.toString() + "\nMode: Permanent");
+            moon.setVisibility(View.INVISIBLE);
+            sun.setVisibility(View.INVISIBLE);
         }
 
         changeActionBarTitle(getWeekDay());
@@ -173,6 +196,8 @@ public class MainActivity extends ActionBarActivity {
         dayTime = (TextView)findViewById(R.id.time);
         permanent = (RadioButton)findViewById(R.id.permanentRadio);
         program = (RadioButton)findViewById(R.id.programRadio);
+        sun = (ImageView)findViewById(R.id.imageView1);
+        moon = (ImageView)findViewById(R.id.imageView2);
     }
 
     public void plusClick(View v) {

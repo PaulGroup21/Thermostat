@@ -83,11 +83,31 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"/>
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_marginLeft="111dp"
+        android:layout_marginTop="22dp"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sun"
+        android:layout_below="@+id/realTemp" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:visibility="visible"
+        android:layout_marginLeft="117dp"
+        android:layout_marginTop="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/moon"
+        android:layout_below="@+id/realTemp" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/radioGroup"
-            android:text="Temp mode"/>
+            android:text="Temp mode"
+        android:id="@+id/textView" />
     <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_above="@+id/configureWeeklyButton"

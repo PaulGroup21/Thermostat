@@ -49,7 +49,7 @@
     <ListView
             android:id="@+id/intervalsListView"
             android:background="@android:color/white"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="25sp"
             android:paddingTop="40dp"
             android:layout_below="@+id/header"
             android:layout_width="match_parent"
