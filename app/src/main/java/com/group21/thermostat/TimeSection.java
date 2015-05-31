@@ -19,7 +19,7 @@ public class TimeSection implements Serializable {
                 right >= t.left && right <= t.right ||
                 t.left >= left && t.left <= right ||
                 t.right >= left && t.right <= right) {
-            return  true;
+            return true;
         }
         return false;
     }
@@ -34,7 +34,7 @@ public class TimeSection implements Serializable {
         if (res == 0) {
             return res + "0";
         }
-        return res+"";
+        return res + "";
     }
 
     public String getHourEnd() {
@@ -47,7 +47,7 @@ public class TimeSection implements Serializable {
         if (res == 0) {
             return res + "0";
         }
-        return res+"";
+        return res + "";
     }
 
     public String getMinutesStart() {
@@ -55,10 +55,10 @@ public class TimeSection implements Serializable {
         while (temp >= 60) {
             temp -= 60;
         }
-        if (temp == 0) {
-            return temp + "0";
+        if (temp < 10) {
+            return "0" + temp;
         }
-        return temp+"";
+        return temp + "";
     }
 
     public String getMinutesEnd() {
@@ -66,14 +66,14 @@ public class TimeSection implements Serializable {
         while (temp >= 60) {
             temp -= 60;
         }
-        if (temp == 0) {
-            return temp + "0";
+        if (temp < 10) {
+            return "0" + temp;
         }
-        return temp+"";
+        return temp + "";
     }
 
     public boolean intersects(int t) {
-        if(t >= left && t <= right ) {
+        if (t >= left && t <= right) {
             return true;
         }
         return false;
