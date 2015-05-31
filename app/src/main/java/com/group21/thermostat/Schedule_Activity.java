@@ -45,6 +45,7 @@ public class Schedule_Activity extends ActionBarActivity {
 
         ((ListView)findViewById(R.id.intervalsListView)).setAdapter(new Intervals_Adapter(this, R.id.intervalsListView,
                 getIntent().getIntExtra("weekd", 0)));
+        findViewById(R.id.addButton).bringToFront();
     }
 
     private void chartWork() {
