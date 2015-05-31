@@ -78,17 +78,4 @@ public class TimeSection implements Serializable {
         }
         return false;
     }
-
-    /*
-    public static void main(String[] args) {
-        Schedule s = new Schedule();
-        System.out.println(s.add(10, 15, 12, 45));
-        System.out.println(s.add(13,30,15,47));
-        System.out.println(s.add(8,00,13,00));
-        System.out.println();
-        System.out.println(s.shouldSwitchToDayTemperature(12,0));
-        s.remove(0);
-        System.out.println(s.shouldSwitchToDayTemperature(12,0));
-    }
-    */
 }

@@ -109,6 +109,7 @@ public class MainActivity extends ActionBarActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 isByProgram = isChecked;
                 schedule.setPermanent(!isByProgram);
+                updateView(timer);
             }
         });
 
