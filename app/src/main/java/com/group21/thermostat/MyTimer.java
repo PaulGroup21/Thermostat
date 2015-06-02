@@ -17,7 +17,7 @@ public class MyTimer {
     }
 
     public void update() {
-        c.add(Calendar.MINUTE,5);
+        c.add(Calendar.MINUTE,1);
     }
 
     public int getTimeInMinutes() {

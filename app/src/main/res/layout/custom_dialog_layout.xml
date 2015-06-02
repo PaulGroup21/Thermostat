@@ -50,15 +50,15 @@
           android:layout_height="2dp"
           android:background="#03A9F4"/>
     <TableRow>
-    <Button
-            android:layout_span="3"
-            android:id="@+id/readyButton"
-            android:textColor="#03A9F4"
-            android:text="Done"/>
-    <Button
+        <Button
             android:layout_span="3"
             android:id="@+id/dismiss"
             android:textColor="#03A9F4"
             android:text="Cancel"/>
+        <Button
+            android:layout_span="3"
+            android:id="@+id/readyButton"
+            android:textColor="#03A9F4"
+            android:text="Add"/>
     </TableRow>
 </TableLayout>

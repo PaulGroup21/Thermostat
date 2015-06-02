@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
     public static WeekSchedule schedule;
 
     SeekBar temperatureSeekbar;
-    private float currentTemp;
+    float currentTemp;
     TextView programmedTemp;
     TextView realTemp;
     TextView dayTime;
@@ -120,11 +120,13 @@ public class MainActivity extends ActionBarActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 updateView(timer);
                 timer.update();
-                handler.postDelayed(this, 1000);
+
+                handler.postDelayed(this, 200);
             }
-        }, 1000);
+        }, 200);
     }
 
     protected void onDestroy() {
